@@ -3,14 +3,16 @@ import factory
 from django.contrib.auth.models import User
 from product.factories import ProductFactory
 
-from order.models import Order
+from order.models import Order, Product
 
 class UserFactory(factory.django.DjangoModelFactory):
     email = factory.Faker('pystr')
     username = factory.Faker('pystr')
     class Meta:
         model = User
-
+class ProductFactory(factory.django.DjangoModelFactory):
+    class Meta:
+        model = Product
 class OrderFactory(factory.django.DjangoModelFactory):
     user = factory.SubFactory(UserFactory)
 

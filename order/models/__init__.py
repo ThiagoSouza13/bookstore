@@ -1,1 +1,1 @@
-from .order import Order, Product
+from .order import Order

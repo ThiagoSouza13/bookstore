@@ -2,6 +2,8 @@ from rest_framework.viewsets import ModelViewSet
 
 from product.models import Product
 from product.serializers.product_serializer import ProductSerializer
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 
 class ProductViewSet(ModelViewSet):

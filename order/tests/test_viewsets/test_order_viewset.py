@@ -1,6 +1,6 @@
 import json
 
-from rest_framework import status  # type: ignore
+from rest_framework import status
 from rest_framework.test import APITestCase, APIClient
 from rest_framework.authtoken.models import Token
 
@@ -18,8 +18,8 @@ class TestOrderViewSet(APITestCase):
     def setUp(self):
         self.user = UserFactory()
 
-        token = Token.objects.create(user=self.user)  # added
-        token.save()  # added
+        token = Token.objects.create(user=self.user)
+        token.save()
 
         self.category = CategoryFactory(title="technology")
         self.product = ProductFactory(
@@ -52,8 +52,8 @@ class TestOrderViewSet(APITestCase):
 
     def test_create_order(self):
         user = UserFactory()
-        token = Token.objects.get(user__username=self.user.username)  # added
-        self.client.credentials(HTTP_AUTHORIZATION=f"Token {token.key}")  # added
+        token = Token.objects.get(user__username=self.user.username)
+        self.client.credentials(HTTP_AUTHORIZATION=f"Token {token.key}")
 
         product = ProductFactory()
         data = json.dumps({"products_id": [product.id], "user": user.id})

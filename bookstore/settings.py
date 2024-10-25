@@ -55,8 +55,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "debug_toolbar.middleware.DebugToolbarMiddleware",
+    "whitenoise.middleware.WhiteNoiseMiddleware",
 ]
-
 
 
 ROOT_URLCONF = "bookstore.urls"
@@ -155,9 +155,11 @@ INTERNAL_IPS = [
 ]
 
 SECRET_KEY = os.environ.get("SECRET_KEY")
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEBUG = os.environ.get("DEBUG", default=False)
-ALLOWED_HOSTS = os.environ.get("DJANGO_ALLOWED_HOSTS", "").split()
+
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "bookstore-api-ebac-thi-dc3ed04f6db5.herokuapp.com/"]
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",

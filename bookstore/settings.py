@@ -159,7 +159,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 
 DEBUG = os.environ.get("DEBUG", default=False)
 
-ALLOWED_HOSTS = ["localhost", "127.0.0.1", "bookstore-api-ebac-thi-dc3ed04f6db5.herokuapp.com/"]
+ALLOWED_HOSTS = ["localhost", "127.0.0.1", "bookstore-api-ebac-thi-dc3ed04f6db5.herokuapp.com"]
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",

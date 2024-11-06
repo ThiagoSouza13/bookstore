@@ -27,3 +27,4 @@ urlpatterns = [
     re_path("bookstore/(?P<version>(v1|v2))/", include("order.urls")),
     path("api-token-auth/", obtain_auth_token, name="api_token_auth"),
 ]
+
